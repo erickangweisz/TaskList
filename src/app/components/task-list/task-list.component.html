@@ -16,14 +16,25 @@
 <div class="row align-items-center text-center">
     <div class="col">
         <div *ngFor="let task of incompletesTaskList">
-            <input type="checkbox" (click)="taskDone(task)">
-            <span>{{ task.description }}</span>
+            <input type="checkbox" class="form-check-input"
+              (click)="taskDone(task)">
+            <span *ngIf="!task.edited; else editingTask"
+              (dblclick)="editTask(task)">
+              {{ task.description }}
+            </span>
+            
+            <ng-template #editingTask>
+              <input type="text" [(ngModel)]="task.description" 
+                (blur)="doneEdit(task)" autofocus>
+            </ng-template>
         </div>
     </div>
     <div class="col">
         <div *ngFor="let task of doneTaskList">
             <span>{{ task.description }}</span>
-            <span (click)="deleteTaskDone(task.id)">[x]</span>
+            <span (click)="deleteTaskDone(task.id)">
+                <i class="fas fa-bars"></i>
+            </span>
         </div>
     </div>
 </div>

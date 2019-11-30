@@ -29,7 +29,7 @@ export class TaskListComponent implements OnInit {
       return;
     }
 
-    this.incompletesTaskList.push({
+    this.incompletesTaskList.unshift({
       id: this.taskId,
       description: this.taskToAdd,
       creationDate: new Date(),
@@ -44,7 +44,15 @@ export class TaskListComponent implements OnInit {
   taskDone(task: Task): void {
     task.done = true;
     this._deleteTaskIncomplete(task.id);
-    this.doneTaskList.push(task);
+    this.doneTaskList.unshift(task);
+  }
+
+  editTask(task: Task): void {
+    task.edited = true;
+  }
+
+  doneEdit(task: Task): void {
+    task.edited = false;
   }
 
   _deleteTaskIncomplete(id: number): void {
