@@ -11,27 +11,33 @@ export class TaskListComponent implements OnInit {
   incompletesTaskList: Task[];
   doneTaskList: Task[];
 
+  taskToAdd: string;
+  taskId: number;
+
   constructor() {}
 
   ngOnInit() {
-    this.incompletesTaskList = [
-      {
-        id: 1,
-        description: 'incomplete task',
-        creationDate: new Date(),
-        edited: false,
-        done: false
-      }
-    ];
-    this.doneTaskList = [
-      {
-        id: 2,
-        description: 'done task',
-        creationDate: new Date(),
-        edited: false,
-        done: true
-      }
-    ];
+    this.taskToAdd = '';
+    this.taskId = 1;
+
+    this.incompletesTaskList = [];
+    this.doneTaskList = [];
   }
 
+  addTask(): void {
+    if (this.taskToAdd.trim().length === 0) {
+      return;
+    }
+
+    this.incompletesTaskList.push({
+      id: this.taskId,
+      description: this.taskToAdd,
+      creationDate: new Date(),
+      edited: false,
+      done: false
+    });
+
+    this.taskToAdd = '';
+    this.taskId++;
+  }
 }
