@@ -40,4 +40,20 @@ export class TaskListComponent implements OnInit {
     this.taskToAdd = '';
     this.taskId++;
   }
+
+  taskDone(task: Task): void {
+    task.done = true;
+    this._deleteTaskIncomplete(task.id);
+    this.doneTaskList.push(task);
+  }
+
+  _deleteTaskIncomplete(id: number): void {
+    this.incompletesTaskList =
+      this.incompletesTaskList.filter(task => task.id !== id);
+  }
+
+  deleteTaskDone(id: number): void {
+    this.doneTaskList =
+      this.doneTaskList.filter(task => task.id !== id);
+  }
 }

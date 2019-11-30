@@ -7,7 +7,7 @@
         <h3>incomplete</h3>
         <hr>
         <div *ngFor="let task of incompletesTaskList">
-            <input type="checkbox">
+            <input type="checkbox" (click)="taskDone(task)">
             <span>{{ task.description }}</span>
         </div>
     </div>
@@ -16,7 +16,7 @@
         <hr>
         <div *ngFor="let task of doneTaskList">
             <span>{{ task.description }}</span>
-            <span>[x]</span>
+            <span (click)="deleteTaskDone(task.id)">[x]</span>
         </div>
     </div>
 </div>
