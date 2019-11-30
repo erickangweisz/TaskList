@@ -1,19 +1,26 @@
 <input type="text" class="form-control" placeholder="Add a task..." 
     [(ngModel)]="taskToAdd" (keyup.enter)="addTask()">
-
 <br>
+
 <div class="row align-items-center text-center">
     <div class="col">
         <h3>incomplete</h3>
         <hr>
+    </div>
+    <div class="col">
+        <h3>done</h3>
+        <hr>
+    </div>
+</div>
+
+<div class="row align-items-center text-center">
+    <div class="col">
         <div *ngFor="let task of incompletesTaskList">
             <input type="checkbox" (click)="taskDone(task)">
             <span>{{ task.description }}</span>
         </div>
     </div>
     <div class="col">
-        <h3>done</h3>
-        <hr>
         <div *ngFor="let task of doneTaskList">
             <span>{{ task.description }}</span>
             <span (click)="deleteTaskDone(task.id)">[x]</span>
