@@ -25,3 +25,9 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Some Sources
+
+- Angular Todo App (https://www.youtube.com/watch?v=nbFmHD4T04k&list=PLEhEHUEU3x5rMkFPBSvEhAok1WadjeWkG&index=1)
+
+- Creating Forms Inside Modals (https://itnext.io/creating-forms-inside-modals-with-ng-bootstrap-221e4f1f5648)
