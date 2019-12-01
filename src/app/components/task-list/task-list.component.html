@@ -33,7 +33,7 @@
         <div *ngFor="let task of doneTaskList">
             <span>{{ task.description }}</span>
             <span (click)="deleteTaskDone(task.id)">
-                <i class="fas fa-bars"></i>
+                [x]
             </span>
         </div>
     </div>
